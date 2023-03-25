@@ -18,8 +18,7 @@ public class Main {
         napojes.add(new nektar("hortex", "brzoskiniowa"));
 
 
-        // SORTOWANIE PO NAZWIE
-
+        // SORTOWANIE PO NAZWIE POLA
         napojes.sort(new Comparator<Napoje>() {
             @Override
             public int compare(Napoje o1, Napoje o2) {
@@ -28,8 +27,16 @@ public class Main {
         });
 
 
-        // PROGRAMOWANIE
+        // SORTOWANIE PO NAZWIE KLASY
+        napojes.sort(new Comparator<Napoje>() {
+            @Override
+            public int compare(Napoje o1, Napoje o2) {
+                return o1.getClass().getSimpleName().compareTo(o2.getClass().getSimpleName());
+            }
+        });
 
+
+        // PROGRAMOWANIE
         KochajacyProgramowac programowac = new KochajacyProgramowac() {
             @Override
             public String programuje() {
@@ -37,8 +44,8 @@ public class Main {
             }
         };
 
-        // LAMBDA
 
+        // LAMBDA
         Function<String, Integer> len = (String tekst) -> tekst.length();
         System.out.println("Długość twojego stringa wynosi: " + len.apply("test"));
 
